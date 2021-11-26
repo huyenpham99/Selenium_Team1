@@ -4,15 +4,15 @@ import org.testng.annotations.*;
 
 public class Day1 {
 
-//    @Test
-//    public void Demo1() {
-//        System.out.println("Hello"); //automation
-//    }
-//
-//    @Test
-//    public void SecondTest() {
-//        System.out.println("Bye");
-//    }
+    @Test
+    public void Demo1() {
+        System.out.println("Hello"); //automation
+    }
+
+    @Test
+    public void SecondTest() {
+        System.out.println("Bye");
+    }
 
     @Test
     public void testTest() {
