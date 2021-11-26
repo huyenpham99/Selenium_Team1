@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <parameter name="mark" value="40"></parameter>
+    <!--    <test verbose="2" preserve-order="true" name="C:/Users/Admin/IdeaProjects/SeleniumStudy">-->
+    <!--        <classes>-->
+    <!--            <class name="assignment1.exercise1.Test1"/>-->
+    <!--            <class name="assignment1.exercise1.Test2"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
+    <!--    <test name="Exercise2">-->
+    <!--        <classes>-->
+    <!--            <class name="assignment1.exercise2.CheckPassFail">-->
+    <!--            </class>-->
+    <!--        </classes>-->
+    <!--    </test>-->
+    <test name="Exercise3">
+        <classes>
+            <class name="assignment1.exercise3.DisplayColor"></class>
+        </classes>
+    </test>
+    <!--    <test name="Exercise4">-->
+    <!--        <classes>-->
+    <!--            <class name="assignment1.exercise4.TestNGGrouping"></class>-->
+    <!--        </classes>-->
+    <!--    </test>-->
+</suite>
