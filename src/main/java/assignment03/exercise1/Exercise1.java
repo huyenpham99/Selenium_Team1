@@ -16,6 +16,6 @@ public class Exercise1 {
         driver.findElement(By.xpath("//input[@id='email-su']")).sendKeys("phamhuyen123@gmail.com");
         driver.findElement(By.xpath("//input[@id='password-su']")).sendKeys("111Huyen@");
         driver.findElement(By.xpath("(//button[@data-tl-id='signup-submit-btn'])[1]")).submit();
-//tao nhanh abcxyz
+
     }
 }
