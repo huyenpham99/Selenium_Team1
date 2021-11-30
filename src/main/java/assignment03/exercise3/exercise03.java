@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 
@@ -10,7 +11,7 @@ public class exercise03 {
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","D:\\Webdriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.get("https://www.booking.com/");
         driver.findElement(By.xpath("(//*[@class='bui-group__item'])[5]/a")).click();

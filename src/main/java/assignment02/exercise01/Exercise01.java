@@ -8,17 +8,19 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
+import java.io.File;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class Exercise01 {
 
     public static void main(String[] args) throws InterruptedException {
-
-        System.setProperty("webdriver.chrome.driver","D:\\Webdriver\\chromedriver.exe");
+        File file = new File("chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver",file.getAbsolutePath());
         WebDriver driver = new ChromeDriver();
         Actions a = new Actions(driver);
         SoftAssert sa = new SoftAssert();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.get("https://tiki.vn/");
         a.sendKeys(driver.findElement(By.cssSelector("[type='text']")),"tủ").sendKeys(Keys.ENTER).build().perform();
