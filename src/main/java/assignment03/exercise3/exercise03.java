@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class exercise03 {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         File file = new File("chromedriver.exe");
         System.setProperty("webdriver.chrome.driver",file.getAbsolutePath());
         WebDriver driver = new ChromeDriver();
@@ -19,10 +19,18 @@ public class exercise03 {
         driver.findElement(By.xpath("(//*[@class='bui-group__item'])[5]/a")).click();
         driver.findElement(By.name("username")).sendKeys("hieuld4@gmail.com");
         driver.findElement(By.cssSelector("[type='submit']")).click();
-        Thread.sleep(2000);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.navigate().back();
         driver.findElement(By.xpath("//*[@class='access-panel__social-buttons']/a[1]")).click();
-        Thread.sleep(2000);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.quit();
     }
 
