@@ -6,7 +6,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import java.time.Duration;
@@ -19,7 +18,6 @@ public class Exercise {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-        Actions a = new Actions(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.get("http://demo.guru99.com/");
@@ -56,12 +54,12 @@ public class Exercise {
         driver.findElement(By.cssSelector("[value='Create']")).click();
 
         //Login Page
-        a.sendKeys(driver.findElement(By.id("email")),email).
-                sendKeys(driver.findElement(By.cssSelector("#password")),pass).sendKeys(Keys.ENTER).build().perform();
+        driver.findElement(By.id("email")).sendKeys(email);
+        driver.findElement(By.cssSelector("#password")).sendKeys(pass, Keys.ENTER);
 
         //Broker Insurance WebPage
         Assert.assertTrue(driver.findElement(By.xpath("//*[@class='button_to']/preceding-sibling::h4")).
-                getText().equalsIgnoreCase(email),"The email is incorrect");
+                getText().equalsIgnoreCase(email),"The email is displayed incorrectly");
 
         try {
             Thread.sleep(2000);
