@@ -21,7 +21,11 @@ public class Exercise3 {
         driver.manage().window().maximize();
         driver.get("http://demo.guru99.com/test/simple_context_menu.html");
         Actions a = new Actions(driver);
+
+
         a.contextClick(driver.findElement(By.cssSelector(".context-menu-one.btn.btn-neutral"))).click(driver.findElement(By.xpath("//*[contains(@class,'context-menu-icon-edit')]"))).build().perform();
+
+
         BufferedImage src = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
         ImageIO.write(src,"png", new File("assign5_ex3.png"));
         Thread.sleep(2000);
