@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Assignment 03" parallel="tests" thread-count="3">
+    <listeners>
+        <listener class-name="assignment03.Listener"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="Exercise 01">
+        <classes>
+            <class name="assignment03.exercise01"/>
+        </classes>
+    </test>
+
+    <test verbose="2" preserve-order="true" name="Exercise 02">
+        <classes>
+            <class name="assignment03.exercise02"/>
+        </classes>
+    </test>
+
+    <test verbose="2" preserve-order="true" name="Exercise 03">
+        <classes>
+            <class name="assignment03.exercise03"/>
+        </classes>
+    </test>
+</suite>
