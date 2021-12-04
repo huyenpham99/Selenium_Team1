@@ -8,42 +8,55 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
 import java.time.Duration;
 
 public class Exercise {
-    public static void main(String[] args) {
+    private WebDriver driver;
 
-        String email = "HieuLD4@gmail.com";
-        String pass = "as123456";
-
+    @BeforeMethod
+    public void getWebDriver() {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
-        driver.get("http://demo.guru99.com/");
+        this.driver = driver;
+    }
 
-        //Homepage
-        driver.findElement(By.xpath("//*[text()='Insurance Project']")).click();
+    @AfterMethod
+    public void quit() {
+        driver.quit();
+    }
+
+    @Test
+    public void isExercise() {
+        String email = "HieuLD4@gmail.com";
+        String pass = "as123456";
+
+        driver.get("http://demo.guru99.com/insurance/v1/index.php");
 
         //Login Page
         driver.findElement(By.cssSelector("a.btn.btn-default")).click();
 
         //Register Page
-        dropdown(driver, "user_title", "Master", "Master");
+        dropdown(driver, By.id("user_title"), "Master");
         driver.findElement(By.name("firstname")).sendKeys("Hieu");
         driver.findElement(By.id("user_surname")).sendKeys("Le");
         driver.findElement(By.cssSelector("input#user_phone")).sendKeys("0369808166");
 
-        dropdown(driver, "user_dateofbirth_1i", "1944", "1944");
-        dropdown(driver, "user_dateofbirth_2i", "2", "February");
-        dropdown(driver, "user_dateofbirth_3i", "15", "15");
+        dropdown(driver, By.id("user_dateofbirth_1i"), "1944");
+        dropdown(driver, By.id("user_dateofbirth_2i"), "February");
+        dropdown(driver, By.id("user_dateofbirth_3i"), "15");
 
         if (!driver.findElement(By.id("licencetype_f")).isSelected()) {
             driver.findElement(By.id("licencetype_f")).click();
         }
 
-        dropdown(driver, "user_licenceperiod", "20", "20");
-        dropdown(driver, "user_occupation_id", "16", "Physician");
+        dropdown(driver, By.id("user_licenceperiod"), "20");
+        dropdown(driver, By.id("user_occupation_id"), "Physician");
 
         driver.findElement(By.xpath("//*[@id='user_address_attributes_street']")).sendKeys("123 Hang Bo");
         driver.findElement(By.name("city")).sendKeys("Ha Noi");
@@ -58,8 +71,8 @@ public class Exercise {
         driver.findElement(By.cssSelector("#password")).sendKeys(pass, Keys.ENTER);
 
         //Broker Insurance WebPage
-        Assert.assertTrue(driver.findElement(By.xpath("//*[@class='button_to']/preceding-sibling::h4")).
-                getText().equalsIgnoreCase(email),"The email is displayed incorrectly");
+        String actualResult = driver.findElement(By.xpath("//*[@class='button_to']/preceding-sibling::h4")).getText();
+        Assert.assertTrue(actualResult.equalsIgnoreCase(email),"The email is displayed incorrectly");
 
         try {
             Thread.sleep(2000);
@@ -67,14 +80,13 @@ public class Exercise {
             e.printStackTrace();
         }
 
-        driver.quit();
 
     }
 
-    public static void dropdown(WebDriver driver, String id, String value, String expectResult) {
-        WebElement dropdown = driver.findElement(By.id(id));
+
+    public static void dropdown(WebDriver driver, By locator, String text) {
+        WebElement dropdown = driver.findElement(locator);
         Select select = new Select(dropdown);
-        select.selectByValue(value);
-        Assert.assertTrue(select.getFirstSelectedOption().getText().equalsIgnoreCase(expectResult));
+        select.selectByVisibleText(text);
     }
 }
