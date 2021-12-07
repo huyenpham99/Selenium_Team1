@@ -30,6 +30,9 @@ public class Exercise1 {
         driver.quit();
     }
 
+
+
+
     @Test
     public void isExercise01() {
         driver.get("https://rahulshettyacademy.com/AutomationPractice/");
