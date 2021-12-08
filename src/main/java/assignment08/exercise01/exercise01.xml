@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Exercise 01" parallel="methods" thread-count="3">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/hieul/Desktop/Selenium_Team1/src/main/java/assignment08/exercise01">
+        <classes>
+            <class name="assignment08.exercise01.test.LoginTest"/>
+        </classes>
+    </test>
+
+</suite>

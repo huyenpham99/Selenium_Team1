@@ -6,10 +6,7 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
@@ -35,7 +32,7 @@ public class BaseTest {
 
 
     @Parameters({"platform","browser"})
-    @Test
+    @BeforeTest
     public void isTest(String platform, String browser) throws IOException {
 
         DesiredCapabilities cap = new DesiredCapabilities();
