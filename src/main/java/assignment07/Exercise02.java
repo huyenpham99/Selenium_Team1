@@ -51,6 +51,5 @@ public class Exercise02 {
         getWebDriver().get("https://google.com");
         getWebDriver().findElement(By.name("q")).sendKeys("Selenium Easy Grid Tutorials");
         getWebDriver().findElement(By.name("q")).submit();
-
     }
 }
