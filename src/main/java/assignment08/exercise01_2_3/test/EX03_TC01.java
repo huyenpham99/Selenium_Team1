@@ -35,7 +35,7 @@ public class EX03_TC01 extends BaseTest {
 
         topsPage.checkDisplay();
 
-        womenPage.clickSubcategory("t-shirts");
+        topsPage.clickSubcategory("t-shirts");
 
         Set<Cookie> cookieSet = DriverManager.getInstance().getWebDriver().manage().getCookies();
     }
