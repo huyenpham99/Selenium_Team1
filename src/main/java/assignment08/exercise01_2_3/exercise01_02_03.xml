@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Exercise 02_03" parallel="tests" thread-count="2">
+<suite name="Exercise 02_03" parallel="classes" thread-count="3">
     <listeners>
         <listener class-name="assignment08.exercise01_2_3.Listener"></listener>
     </listeners>
 
-    <test verbose="2" preserve-order="true" name="Exercise 01" parallel="classes" thread-count="3">
+    <test verbose="2" preserve-order="true" name="Exercise 01">
         <classes>
             <class name="assignment08.exercise01_2_3.test.EX01_TC01_LoginSuccessfully"/>
             <class name="assignment08.exercise01_2_3.test.EX01_TC02_LoginWithInvalidAcc"/>
@@ -14,14 +14,21 @@
     </test>
 
 
-    <test verbose="2" preserve-order="true" name="Exercise 02" parallel="classes" thread-count="4">
+    <test verbose="2" preserve-order="true" name="Exercise 02">
         <classes>
             <class name="assignment08.exercise01_2_3.test.EX02_TC01_RegisterWithValidEmail"/>
             <class name="assignment08.exercise01_2_3.test.EX02_TC02_RegisterWithInvalidEmail"/>
             <class name="assignment08.exercise01_2_3.test.EX02_TC03_RegisterWithBlankEmail"/>
             <class name="assignment08.exercise01_2_3.test.EX02_TC04_RegisterWithExistingEmail"/>
-
         </classes>
+    </test>
+
+    <test name="Exercise 03">
+
+        <classes>
+            <class name="assignment08.exercise01_2_3.test.EX03_TC01"></class>
+        </classes>
+
     </test>
 
 </suite>

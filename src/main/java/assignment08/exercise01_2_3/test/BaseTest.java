@@ -11,6 +11,8 @@ public class BaseTest {
     public static final String URL_ACCOUNT = "http://automationpractice.com/index.php?controller=my-account";
     public static final String URL_HOMEPAGE = "http://automationpractice.com/index.php";
 
+
+
     @BeforeMethod
     public void setUp(){
         DriverManager.getInstance().isWebDriver();

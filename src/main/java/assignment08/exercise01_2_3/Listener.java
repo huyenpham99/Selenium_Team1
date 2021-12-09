@@ -1,5 +1,6 @@
 package assignment08.exercise01_2_3;
 
+import multiScreenShot.MultiScreenShot;
 import assignment08.exercise01_2_3.helper.DriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -12,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 
 public class Listener implements ITestListener{
-
 
     @Override
     public void onTestStart(ITestResult result) {
@@ -27,9 +27,10 @@ public class Listener implements ITestListener{
     @Override
     public void onTestFailure(ITestResult result) {
 
+
         File src = ((TakesScreenshot) DriverManager.getInstance().getWebDriver()).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(src, new File("EX03_TC01.png"));
+            FileUtils.copyFile(src, new File("ScreenShot"+ result.getName() +".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

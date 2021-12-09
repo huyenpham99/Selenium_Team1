@@ -21,8 +21,8 @@ public class DriverManager {
         return instance;
     }
 
-    private ThreadLocal<WebDriver> dr = new ThreadLocal<>();
 
+    private ThreadLocal<WebDriver> dr = new ThreadLocal<>();
 
     public void setWebDriver(WebDriver driver){
         dr.set(driver);
@@ -31,6 +31,8 @@ public class DriverManager {
     public WebDriver getWebDriver(){
         return dr.get();
     }
+
+
 
     public WebDriver isWebDriver(){
         WebDriverManager.chromedriver().setup();
